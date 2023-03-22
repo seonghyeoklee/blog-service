@@ -502,7 +502,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">curl</div>
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">$ curl 'https://dev-insurance-api.smallticket.com/v1/search/blog?blogUrl=https://brunch.co.kr/@tourism&amp;search=blog&amp;sort=accuracy&amp;page=1&amp;size=10' -i -X GET \
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">$ curl 'http://localhost:8080/v1/search/blog?blogUrl=https://brunch.co.kr/@tourism&amp;search=blog&amp;sort=accuracy&amp;page=1&amp;size=10' -i -X GET \
     -H 'Accept: application/json'</code></pre>
 </div>
 </div>
@@ -511,7 +511,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /v1/search/blog?blogUrl=https://brunch.co.kr/@tourism&amp;search=blog&amp;sort=accuracy&amp;page=1&amp;size=10 HTTP/1.1
 Accept: application/json
-Host: dev-insurance-api.smallticket.com</code></pre>
+Host: localhost:8080</code></pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -554,16 +554,16 @@ Host: dev-insurance-api.smallticket.com</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1360
+Content-Length: 1300
 
 {
   "content" : [ {
     "title" : "여행을 통해 희망을 발견하기 브런치 연재 시작",
-    "content" : "희망을 발견하자는 내용으로, 이른바 &amp;#34;헬조선&amp;#34;을 극복하기 위해 여행에서 만난 다양한 이야기를 풀어나가려 합니다. 링크는 다음과 같습니다 ^^ &lt;b&gt;https://dev-insurance-api.smallticket.com/@tourism&lt;/b&gt; 정란수의 브런치 여행다니면서 일하는 &amp;#34;한량&amp;#34;! &amp;lt;개념여행&amp;gt;이라는 책을 펴냈다가 출판사에 미안하게 되어버림. brunch.co.kr 아마도 이 &lt;b&gt;블로그&lt;/b&gt;...",
+    "content" : "희망을 발견하자는 내용으로, 이른바 &amp;#34;헬조선&amp;#34;을 극복하기 위해 여행에서 만난 다양한 이야기를 풀어나가려 합니다. 링크는 다음과 같습니다 ^^ &lt;b&gt;http://localhost:8080/@tourism&lt;/b&gt; 정란수의 브런치 여행다니면서 일하는 &amp;#34;한량&amp;#34;! &amp;lt;개념여행&amp;gt;이라는 책을 펴냈다가 출판사에 미안하게 되어버림. brunch.co.kr 아마도 이 &lt;b&gt;블로그&lt;/b&gt;...",
     "blogname" : "&lt;개념여행&gt;, &lt;여행을가다, 희망을보다&gt; 저자 정란수",
-    "url" : "https://dev-insurance-api.smallticket.com/jeongransoo/220511478588",
+    "url" : "http://localhost:8080/jeongransoo/220511478588",
     "datetime" : "2015-10-17T16:44:00.000+09:00",
-    "thumbnail" : "https://dev-insurance-api.smallticket.com/argon/130x130_85_c/EvscfrxMzLn"
+    "thumbnail" : "http://localhost:8080/argon/130x130_85_c/EvscfrxMzLn"
   } ],
   "pageable" : {
     "sort" : {
@@ -580,14 +580,14 @@ Content-Length: 1360
   "last" : true,
   "totalPages" : 2,
   "totalElements" : 11,
-  "size" : 10,
-  "number" : 1,
-  "first" : false,
   "sort" : {
     "empty" : true,
     "unsorted" : true,
     "sorted" : false
   },
+  "first" : false,
+  "number" : 1,
+  "size" : 10,
   "numberOfElements" : 1,
   "empty" : false
 }</code></pre>
