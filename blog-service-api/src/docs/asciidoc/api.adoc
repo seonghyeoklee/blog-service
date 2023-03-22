@@ -1,0 +1,55 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+:toc: left
+:toclevels: 2
+:source-highlighter: highlightjs
+:icons: font
+:doctype: book
+:sectlinks:
+
+= Search REST API
+
+[[overview]]
+== Overview
+
+[[overview-http-status-codes]]
+=== HTTP status codes
+
+|===
+| 상태 코드 | 설명
+
+| `200 OK`
+| 성공
+
+| `400 Bad Request`
+| 잘못된 요청
+
+| `500 Internal Server Error`
+| 서버 에러
+|===
+
+== 검색 API
+
+=== 블로그 검색
+
+.curl
+
+include::{snippets}/search-blog/curl-request.adoc[]
+
+.request
+
+include::{snippets}/search-blog/http-request.adoc[]
+
+.request-parameters
+
+include::{snippets}/search-blog/request-parameters.adoc[]
+
+.response
+
+include::{snippets}/search-blog/http-response.adoc[]
+
+.response-fields
+
+include::{snippets}/search-blog/response-fields.adoc[]

@@ -1,0 +1,54 @@
+buildscript {
+    ext {
+        snippetsDir = file('build/generated-snippets')
+    }
+}
+
+plugins {
+    id "org.asciidoctor.jvm.convert" version "3.3.2"
+}
+
+bootJar {
+    dependsOn asciidoctor
+    copy {
+        from "${asciidoctor.outputDir}"
+        into 'src/main/resources/static/docs'
+    }
+}
+
+dependencies {
+    testImplementation 'io.rest-assured:rest-assured:3.3.0'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-webtestclient'
+
+    implementation project(':blog-core')
+}
+
+tasks {
+    processResources {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    outputs.dir snippetsDir
+}
+
+asciidoctor {
+    dependsOn test
+    inputs.dir snippetsDir
+}
+
+asciidoctor.doFirst {
+    delete file('src/main/resources/static/docs')
+}
+
+task copyDocument(type: Copy) {
+    dependsOn asciidoctor
+    from file("build/docs/asciidoc")
+    into file("src/main/resources/static/docs")
+}
+
+build {
+    dependsOn copyDocument
+}
